@@ -1,4 +1,5 @@
 import {
+  Link,
   Links,
   LinksFunction,
   LiveReload,
@@ -21,7 +22,9 @@ export let links: LinksFunction = () => {
 export default function App() {
   return (
     <Document title={"Blog App"}>
-      <Outlet />
+      <Layout>
+        <Outlet />
+      </Layout>
     </Document>
   );
 }
@@ -51,5 +54,25 @@ function Document(props: DocumentProp) {
         {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
+  );
+}
+
+function Layout({ children }: { children: JSX.Element }) {
+  return (
+    <>
+      <nav className="navbar">
+        <Link to="/" className="">
+          Remix
+        </Link>
+
+        <ul>
+          <li>
+            <Link to="/posts">Posts</Link>
+          </li>
+        </ul>
+
+        <div className="">{children}</div>
+      </nav>
+    </>
   );
 }
