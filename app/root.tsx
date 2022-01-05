@@ -12,7 +12,7 @@ import type { MetaFunction } from "remix";
 import tailwindStyles from "./tailwind.css";
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return { title: "Blog App" };
 };
 
 export let links: LinksFunction = () => {
@@ -60,19 +60,28 @@ function Document(props: DocumentProp) {
 function Layout({ children }: { children: JSX.Element }) {
   return (
     <>
-      <nav className="navbar">
-        <Link to="/" className="">
+      <nav
+        className="flex justify-between px-10 py-2 
+      bg-slate-200 border-b-2 border-slate-300"
+      >
+        <Link to="/" className="text-3xl">
           Remix
         </Link>
 
-        <ul>
+        <ul className="flex space-x-2">
           <li>
-            <Link to="/posts">Posts</Link>
+            <Link to="/posts" className="text-xl">
+              Posts
+            </Link>
+          </li>
+          <li>
+            <Link to="/posts/new" className="text-xl">
+              Test
+            </Link>
           </li>
         </ul>
-
-        <div className="">{children}</div>
       </nav>
+      <div className="">{children}</div>
     </>
   );
 }
