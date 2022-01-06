@@ -61,16 +61,16 @@ function Layout({ children }: { children: JSX.Element }) {
   return (
     <>
       <nav
-        className="flex justify-between px-10 py-2 
+        className="flex justify-between px-0 md:px-10 py-2 
       bg-slate-200 border-b-2 border-slate-300"
       >
         <Link to="/" className="text-3xl">
           Remix
         </Link>
 
-        <ul className="flex space-x-2">
+        <ul className="flex">
           <li>
-            <Link to="/posts" className="text-xl">
+            <Link to="/posts" className="text-xl pr-2">
               Posts
             </Link>
           </li>
